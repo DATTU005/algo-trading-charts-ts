@@ -110,11 +110,22 @@ const TradingChart: React.FC<{
       chartContainerRef.current.appendChild(watermark);
 
       const tooltip = document.createElement("div");
-      const toolTipWidth = 80;
-      const toolTipHeight = 80;
-      const toolTipMargin = 15;
 
-      tooltip.style = `width: 100px; height: 70px; position: absolute; display: none; padding: 8px; box-sizing: border-box; font-size: 12px; text-align: left; z-index: 1000; top: 12px; left: 12px; pointer-events: none; border: 1px solid; border-radius: 2px;font-family: "Poppins", sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;`;
+      tooltip.style.width = "100px";
+      tooltip.style.height = "70px";
+      tooltip.style.position = "absolute";
+      tooltip.style.display = "none";
+      tooltip.style.padding = "8px";
+      tooltip.style.boxSizing = "border-box";
+      tooltip.style.fontSize = "12px";
+      tooltip.style.textAlign = "left";
+      tooltip.style.zIndex = "1000";
+      tooltip.style.top = "12px";
+      tooltip.style.left = "12px";
+      tooltip.style.pointerEvents = "none";
+      tooltip.style.border = "1px solid";
+      tooltip.style.borderRadius = "2px";
+      tooltip.style.fontFamily = '"Poppins", sans-serif';
       tooltip.style.background = "black";
       tooltip.style.color = "white";
       tooltip.style.borderColor = "#2962FF";
@@ -140,34 +151,6 @@ const TradingChart: React.FC<{
               ${timeString}<div style="color: ${"white"}">
               value: ${price.value.toFixed(2)}
             </div>`;
-
-        const coordinate = newSeries.priceToCoordinate(price);
-        let shiftedCoordinate = param.point.x - 50;
-        if (coordinate === null) {
-          return;
-        }
-        shiftedCoordinate = Math.max(
-          0,
-          Math.min(
-            chartContainerRef.clientWidth - toolTipWidth,
-            shiftedCoordinate
-          )
-        );
-        const coordinateY =
-          coordinate - toolTipHeight - toolTipMargin > 0
-            ? coordinate - toolTipHeight - toolTipMargin
-            : Math.max(
-                0,
-                Math.min(
-                  chartContainerRef.clientHeight -
-                    toolTipHeight -
-                    toolTipMargin,
-                  coordinate + toolTipMargin
-                )
-              );
-        tooltip.style.left = shiftedCoordinate + "px";
-        tooltip.style.top = coordinateY + "px";
-
         tooltip.style.display = "block";
         tooltip.style.left = `${param.point.x}px`;
         tooltip.style.top = `${param.point.y}px`;
