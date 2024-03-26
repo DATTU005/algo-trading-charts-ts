@@ -139,6 +139,7 @@ const TradingChart: React.FC<{
         }
 
         const price = param.seriesData.get(newSeries);
+
         if (price === undefined) return;
 
         const timeString = param.time
