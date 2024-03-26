@@ -43,6 +43,7 @@ const TradingChart: React.FC<{
       const chartOptions: DeepPartial<TimeChartOptions> = {
         layout: {
           background: { type: ColorType.Solid, color: "transparent" },
+          fontFamily: "Poppins , sans-serif",
         },
         leftPriceScale: {
           visible: true,
@@ -113,7 +114,7 @@ const TradingChart: React.FC<{
       const toolTipHeight = 80;
       const toolTipMargin = 15;
 
-      tooltip.style = `width: 96px; height: 80px; position: absolute; display: none; padding: 8px; box-sizing: border-box; font-size: 12px; text-align: left; z-index: 1000; top: 12px; left: 12px; pointer-events: none; border: 1px solid; border-radius: 2px;font-family: -apple-system, BlinkMacSystemFont, 'Trebuchet MS', Roboto, Ubuntu, sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;`;
+      tooltip.style = `width: 100px; height: 70px; position: absolute; display: none; padding: 8px; box-sizing: border-box; font-size: 12px; text-align: left; z-index: 1000; top: 12px; left: 12px; pointer-events: none; border: 1px solid; border-radius: 2px;font-family: "Poppins", sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;`;
       tooltip.style.background = "black";
       tooltip.style.color = "white";
       tooltip.style.borderColor = "#2962FF";

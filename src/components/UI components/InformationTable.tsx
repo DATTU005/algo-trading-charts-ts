@@ -11,7 +11,10 @@ const InformationTable = () => {
   return (
     <TableContainer component={Paper}>
       <Table>
-        <TableHead style={{ backgroundColor: "lightgrey" }}>
+        <TableHead
+          style={{ backgroundColor: "lightgrey" }}
+          sx={{ fontFamily: "Poppins, sans-serif" }}
+        >
           <TableRow>
             <TableCell style={{ borderRight: "1px solid #ddd" }}>
               Period
@@ -22,7 +25,7 @@ const InformationTable = () => {
             <TableCell align="right">Days</TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
+        <TableBody sx={{ fontFamily: "Poppins, sans-serif" }}>
           {ddPeriods.data.map((period, index) => (
             <TableRow key={index}>
               <TableCell
