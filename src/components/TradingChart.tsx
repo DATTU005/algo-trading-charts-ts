@@ -8,6 +8,14 @@ import {
 } from "lightweight-charts";
 import React, { useEffect, useRef } from "react";
 
+interface PriceData {
+  value: number;
+  time: string;
+  lineColor: string;
+  topColor: string;
+  bottomColor: string;
+}
+
 interface DataItem {
   date: string;
   pnl: number;
@@ -138,7 +146,7 @@ const TradingChart: React.FC<{
           return;
         }
 
-        const price = param.seriesData.get(newSeries);
+        const price = param.seriesData.get(newSeries) as PriceData;
 
         if (price === undefined) return;
 
@@ -150,7 +158,7 @@ const TradingChart: React.FC<{
         tooltip.innerHTML = `
             </div>
               ${timeString}<div style="color: ${"white"}">
-              value: ${price.value.toFixed(2)}
+              value: ${price.value}
             </div>`;
         tooltip.style.display = "block";
         tooltip.style.left = `${param.point.x}px`;
